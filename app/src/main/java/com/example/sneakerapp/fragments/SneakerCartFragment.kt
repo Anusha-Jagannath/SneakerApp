@@ -71,8 +71,8 @@ class SneakerCartFragment : Fragment() {
 
                 total = subTotal + Utils.TAX
 
-                binding.subtotalTv.text = getString(R.string.subtotal)+": "+getString(R.string.rs_symbol) + subTotal.toString()
-                binding.taxesTv.text = getString(R.string.taxes_and_charges)+": "+ getString(R.string.rs_symbol) + Utils.TAX
+                binding.subtotalTv.text = getString(R.string.subtotal)+" "+getString(R.string.rs_symbol) + subTotal.toString()
+                binding.taxesTv.text = getString(R.string.taxes_and_charges)+" "+ getString(R.string.rs_symbol) + Utils.TAX
                 binding.totalTv.text = getString(R.string.rs_symbol) + total
 
             }
