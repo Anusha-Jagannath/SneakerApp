@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/empty_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/empty_state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cart_tv" />
+
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_30dp"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cart_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/cart"
+            android:textColor="@color/light_orange"
+            android:textSize="@dimen/_30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:nestedScrollingEnabled="false"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cart_tv" />
+
+
+        <LinearLayout
+            android:id="@+id/details_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view"
+            android:layout_marginHorizontal="@dimen/_12dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="@dimen/_24dp"
+                android:text="@string/order_details"
+                android:textSize="@dimen/_24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recycler_view" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/subtotal_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="@dimen/_24dp"
+                android:fontFamily="sans-serif"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                tools:text="Subtotal: Rs 1000" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/taxes_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12dp"
+                android:layout_marginTop="@dimen/_12dp"
+                android:textSize="@dimen/_20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/subtotal_tv"
+                app:layout_constraintStart_toStartOf="@id/subtotal_tv"
+                app:layout_constraintTop_toBottomOf="@id/subtotal_tv"
+                tools:text="Taxes and Charges: Rs 300" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/price_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:text="@string/total"
+                    android:textSize="@dimen/_20sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toStartOf="@id/taxes_tv"
+                    app:layout_constraintTop_toBottomOf="@id/taxes_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/total_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12dp"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:textColor="@color/light_orange"
+                    android:textSize="@dimen/_20sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/total_tv"
+                    app:layout_constraintTop_toBottomOf="@id/taxes_tv"
+                    tools:text="Rs 1000" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/add_to_cart_bg"
+                    android:paddingHorizontal="@dimen/_24dp"
+                    android:paddingVertical="@dimen/_16dp"
+                    android:text="@string/checkout"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/price_tv"
+                    app:layout_constraintTop_toBottomOf="@id/taxes_tv" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>
